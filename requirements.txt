@@ -1,0 +1,7 @@
+click
+numpy
+tqdm
+requests
+pyyaml
+jittor
+

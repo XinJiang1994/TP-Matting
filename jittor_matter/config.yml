@@ -1,0 +1,98 @@
+model:
+  vit_tiny_patch16_384:
+    image_size: 384
+    patch_size: 16
+    isize_vit: 256
+    d_model: 192
+    n_heads: 3
+    n_layers: 12
+    normalization: vit
+    distilled: false
+    
+decoder:
+  linear: {}
+  deeplab_dec:
+    encoder_layer: -1
+  mask_transformer:
+    drop_path_rate: 0.0
+    dropout: 0.1
+    n_layers: 2
+dataset:
+  ade20k:
+    epochs: 64
+    eval_freq: 2
+    batch_size: 8
+    learning_rate: 0.001
+    im_size: 512
+    crop_size: 512
+    window_size: 512
+    window_stride: 512
+  pascal_context:
+    epochs: 256
+    eval_freq: 8
+    batch_size: 16
+    learning_rate: 0.001
+    im_size: 520
+    crop_size: 480
+    window_size: 480
+    window_stride: 320
+  cityscapes:
+    epochs: 216
+    eval_freq: 4
+    batch_size: 40
+    learning_rate: 0.01
+    im_size: 1024
+    crop_size: 768
+    window_size: 768
+    window_stride: 512
+  videomatte:
+    epochs: 10
+    eval_freq: 4
+    batch_size: 24
+    learning_rate: 0.001
+    im_size: 256
+    crop_size: 240
+    window_size: 240
+    window_stride: 160
+    train_data_path: '../Dataset/VideoMatte240K_JPEG_768/train'
+    test_data_path: '../Dataset/VideoMatte240K_JPEG_768/test'
+    background_images: '../Dataset/MSCOCO/train2014'
+    background_videos: '../Dataset/BackgroundVideos/train'
+    background_videos_test: '../Dataset/BackgroundVideos/test'
+    background_images_test: '../Dataset/IMG_BG_TEST'
+  BGM:
+    epochs: 10
+    eval_freq: 4
+    batch_size: 24
+    learning_rate: 0.001
+    im_size: 256
+    crop_size: 240
+    window_size: 240
+    window_stride: 160
+    train_data_path: '../Dataset/BGMDataset_JPEG/'
+    test_data_path: '../Dataset/VideoMatte240K_JPEG_768/test'
+    background_images: '../Dataset/MSCOCO/train2014'
+    background_videos: '../Dataset/BackgroundVideos/train'
+    background_videos_test: '../Dataset/BackgroundVideos/test'
+    background_images_test: '../Dataset/IMG_BG_TEST'
+    # train_data_path: '/root/userfolder/VBMH/Dataset/VideoMatte240K_JPEG_768/train'
+    # test_data_path: '/root/userfolder/VBMH/Dataset/VideoMatte240K_JPEG_768/test'
+    # background_images: '/root/commonfiles/Datasets/MSCOCO/train2014'
+    # background_videos: '/root/userfolder/Datasets/VBHOI/BackgroundVideos/train'
+    # background_videos_test: '/root/userfolder/Datasets/VBHOI/BackgroundVideos/test'
+    # background_images_test: '/root/userfolder/Datasets/VBHOI/IMG_BG_TEST'
+  imagematte:
+    epochs: 10
+    eval_freq: 4
+    batch_size: 40
+    learning_rate: 0.01
+    im_size: 512
+    crop_size: 240
+    window_size: 240
+    window_stride: 160
+    train_data_path: '../Dataset/matting_human_kaggle/train'
+    test_data_path: '../Dataset/matting_human_kaggle/test'
+    background_images: '../Dataset/MSCOCO/train2014'
+    background_videos: '../Dataset/BackgroundVideos/train'
+    background_videos_test: '../Dataset/BackgroundVideos/test'
+    background_images_test: '../Dataset/IMG_BG_TEST'

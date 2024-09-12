@@ -3,5 +3,6 @@ numpy
 tqdm
 requests
 pyyaml
-jittor
+# jittor
+PyQt5
 

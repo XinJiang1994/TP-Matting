@@ -1,6 +1,6 @@
 import sys
 sys.path.append("..")
-import onnxruntime as ort
+# import onnxruntime as ort
 import numpy as np
 import cv2
 from jittor_matter import config
